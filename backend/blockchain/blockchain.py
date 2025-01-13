@@ -11,6 +11,24 @@ class Blockchain:
     def __repr__(self):
         return f'Blockchain: {self.chain}'
     
+
+    @staticmethod
+    def is_valid_chain(chain):
+        """
+        Validate the incoming chain
+        Enforce following rules:
+        1. Starts with genesis block
+        2. Blocks format must be crct
+        """
+        if chain[0]!=Block.genesis():
+            raise Exception('Genesis block must be valid')
+
+        for i in range(1,len(chain)):
+            block=chain[i]
+            last_block=chain[i-1]
+            Block.is_valid_block(last_block,block)
+
+    
 def main():
 
     blockchain=Blockchain()
