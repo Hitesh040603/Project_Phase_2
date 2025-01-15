@@ -21,3 +21,12 @@ Activate virtual environment
 ```
 python3 -m backend.app
 ```
+
+
+**Run a peer instance**
+Activate virtual environment
+```
+$env:PEER = "True"
+python -m backend.app
+
+```
