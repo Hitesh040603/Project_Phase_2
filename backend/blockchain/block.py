@@ -68,6 +68,13 @@ class Block:
         Generates genesis Block
         """
         return Block(**GENESIS_DATA)
+    
+    @staticmethod
+    def from_json(block_json):
+        """
+        Deserialize a json representation into a block instance
+        """
+        return Block(**block_json)
 
     @staticmethod
     def adjust_difficulty(last_block,new_timestamp):
@@ -114,11 +121,8 @@ class Block:
 def main():
     genesis_block=Block.genesis()
     bad_block=Block.mine_block(genesis_block,'foo')
-    bad_block.last_hash='evil-data'
-    try:
-        Block.is_valid_block(genesis_block,bad_block)
-    except Exception as e:
-        print(f'is_valid_block: {e}')
+    
+    print(bad_block)
 
 
 
