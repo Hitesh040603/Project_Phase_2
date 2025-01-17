@@ -9,7 +9,7 @@ class Transaction:
     Documents transactions from sender to one or more recipients
     """
     def __init__(self,sender_wallet,recipient,amount):
-        self.id=str(uuid.uuid4)[:8]
+        self.id=str(uuid.uuid4())[0:8]
         self.output=self.create_output(sender_wallet,recipient,amount)
         self.input=self.create_input(sender_wallet,self.output)
 
@@ -39,6 +39,45 @@ class Transaction:
             'public_key':sender_wallet.public_key,
             'signature':sender_wallet.sign(output)
         }
+    
+    def update(self,sender_wallet,recipient,amount):
+        """
+        Update transaction with existing or new recipient
+        """
+        if amount>self.output[sender_wallet.address]:
+            raise Exception('Amount exceeds balance')
+        
+        if  recipient in self.output:
+            self.output[recipient]+=amount
+        else:
+            self.output[recipient]=amount
+
+        self.output[sender_wallet.address]-=amount
+
+        self.input=self.create_input(sender_wallet,self.output)
+
+    def to_json(self):
+        """
+        Serialize the transaction
+        """
+        return self.__dict__
+
+
+    @staticmethod
+    def is_valid_transaction(transaction):
+        """
+        Validates transactions and raises exception if not
+        """
+        output_total=sum(transaction.output.values())
+        if transaction.input['amount']!=output_total:
+            raise Exception('Invalid transaction output values')
+        
+        if not Wallet.verify(transaction.input['public_key'],transaction.output,transaction.input['signature']):
+            raise Exception('Invalid signature')
+        
+
+
+
         
 def main():
     transaction=Transaction(Wallet(),'recipient',15)
