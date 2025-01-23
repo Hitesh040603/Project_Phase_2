@@ -5,7 +5,8 @@ class Blockchain:
         self.chain=[Block.genesis()]
 
     def add_block(self,data):
-        self.chain.append(Block.mine_block(self.chain[-1],data))#self.chain[-1] references the last block in the chain
+        self.chain.append(Block.mine_block(self.chain[-1],data))
+        #self.chain[-1] references the last block in the chain
     
 
     def __repr__(self):
