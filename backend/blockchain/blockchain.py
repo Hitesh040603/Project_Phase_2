@@ -76,7 +76,7 @@ class Blockchain:
         Enforce rules of transaction:
         1.Each transaction must only appear once
         2.Only 1 mining reward per block
-        3.Each transaction mus be valid
+        3.Each transaction must be valid
         """
         transaction_ids=set()
 

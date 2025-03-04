@@ -30,3 +30,10 @@ $env:PEER = "True"
 python -m backend.app
 
 ```
+
+
+**Run the frontend**
+In frontend dir
+```
+npm run start
+```
