@@ -37,3 +37,11 @@ In frontend dir
 ```
 npm run start
 ```
+
+
+**Seed backend with data**
+
+```
+$env:SEED_DATA="True" 
+>> python -m backend.app
+```
