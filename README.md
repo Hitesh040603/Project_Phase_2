@@ -30,3 +30,18 @@ $env:PEER = "True"
 python -m backend.app
 
 ```
+
+
+**Run the frontend**
+In frontend dir
+```
+npm run start
+```
+
+
+**Seed backend with data**
+
+```
+$env:SEED_DATA="True" 
+>> python -m backend.app
+```
