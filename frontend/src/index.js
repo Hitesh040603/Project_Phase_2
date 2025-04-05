@@ -6,6 +6,7 @@ import Blockchain from "./components/Blockchain";
 import ConductTransaction from "./components/ConductTransaction";
 import App from "./components/App";
 import TransactionPool from "./components/TransactionPool";
+import ChipSearch from "./components/ChipSearch";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -16,6 +17,8 @@ root.render(
       <Route path="/blockchain" component={Blockchain} />
       <Route path="/conduct-transaction" component={ConductTransaction} />
       <Route path="/transaction-pool" component={TransactionPool} />
+
+      <Route path="/chip-search" component={ChipSearch} />
 
     </Switch>
   </BrowserRouter>

@@ -1,9 +1,9 @@
 body {
-  background-color: #444;
-  color: #fff;
+  background-color: #000000;
+  color: #087d16;
   text-align: center;
   font-size: 18px;
-  font-family: 'Quicksand';
+  font-family: monospace;
   padding-top: 5%;
   word-wrap: break-word;
 }
@@ -39,10 +39,11 @@ body {
 }
 
 a, a:hover {
-  color: #e66;
+  color: rgb(255, 255, 255);
   text-decoration: underline;
 }
 
 input, button {
   color: black;
+  background-color: #087d16;
 }

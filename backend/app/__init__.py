@@ -85,6 +85,33 @@ def route_known_addresses():
 def route_transactions():
     return jsonify(transaction_pool.transaction_data())
 
+@app.route('/blockchain/search')
+def route_blockchain_search():
+    chip_id = request.args.get('chip_id')
+
+    if not chip_id:
+        return jsonify({'message': 'chip_id is required'}), 400
+
+    matches = []
+
+    for block in blockchain.chain:
+        for transaction in block.data:
+            chip_info = transaction.get('chip_info')
+            if chip_info and chip_info.get('chip_id') == chip_id:
+                matches.append({
+                    'timestamp': block.timestamp,
+                    'chip_info': chip_info,
+                    'status': chip_info.get('current_status', 'unknown')
+                })
+
+    # Sort by timestamp DESCENDING
+    matches.sort(key=lambda x: x['timestamp'], reverse=True)
+
+    return jsonify(matches)
+
+
+
+
 ROOT_PORT = 5000
 PORT = ROOT_PORT
 
