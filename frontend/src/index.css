@@ -47,3 +47,24 @@ input, button {
   color: black;
   background-color: #087d16;
 }
+/* In App.css or your main CSS file */
+.btn-danger {
+  background-color:red  !important; /* new background color */
+  border-color:white !important;     /* new border color */
+  color: white !important;              /* optional text color */
+}
+
+.btn-danger:hover {
+  background-color: #087d16 !important; /* hover effect */
+  border-color: white !important;
+}
+
+.nav-link{
+  color:  red; /* or any color you want */
+  text-decoration: none; /* optional: removes underline */
+}
+
+.nav-link:hover {
+  color: #087d16; /* hover color */
+  text-decoration: underline; /* optional */
+}

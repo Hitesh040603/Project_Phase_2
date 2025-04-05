@@ -18,10 +18,10 @@ function App() {
       <img className="logo" src={logo} alt="Semiconductor Chip"/>
       <h3>Welcome to ChipCheck</h3>
       <br/>
-      <Link to="/blockchain">Blockchain</Link>
-      <Link to="/conduct-transaction">Conduct a Transaction</Link>
-      <Link to="/transaction-pool">Transaction Pool</Link>
-      <Link to='/chip-search'>Chip Search</Link>
+      <Link className="nav-link" to="/blockchain">Blockchain</Link>
+      <Link className="nav-link" to="/conduct-transaction">Conduct a Transaction</Link>
+      <Link className="nav-link" to="/transaction-pool">Transaction Pool</Link>
+      <Link className="nav-link" to='/chip-search'>Chip Search</Link>
 
       <div className="WalletInfo">
         <div>Address: {address}</div>

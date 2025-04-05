@@ -32,7 +32,7 @@ function Blockchain(){
 
     return(
         <div className="Blockchain">
-            <Link to="/">Home</Link>
+            <Link className="nav-link" to="/">Home</Link>
             <hr/>
             <h3>Blockchain</h3>
             <div>{blockchain.map(block=>(

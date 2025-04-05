@@ -37,7 +37,7 @@ function ChipSearch() {
 
   return (
     <div className="ChipSearch">
-      <Link to="/">Home</Link>
+      <Link className="nav-link" to="/">Home</Link>
       <hr />
       <h3>Search Chip History</h3>
 
@@ -50,7 +50,7 @@ function ChipSearch() {
         />
       </Form.Group>
       <br />
-      <Button variant="primary" onClick={handleSearch}>Search</Button>
+      <Button variant="danger" onClick={handleSearch}>Search</Button>
 
       {loading && <p>Loading...</p>}
 
